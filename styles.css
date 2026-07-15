@@ -22,6 +22,15 @@
   --dawn-dim:  rgba(255, 126, 95, 0.16);
   --teal-dim:  rgba(79, 209, 197, 0.16);
 
+  /* translucent surface overlays — tokenised so the light scheme can
+     override them. In dark mode these deepen toward the night base. */
+  --card-bg:    linear-gradient(180deg, rgba(33,38,80,0.55), rgba(23,27,61,0.55));
+  --inset-06:   rgba(10,14,40,0.6);   /* datechip */
+  --inset-04:   rgba(10,14,40,0.4);   /* stats, ghost btn, answer */
+  --inset-03:   rgba(10,14,40,0.3);   /* walk pt, card foot */
+  --inset-085:  rgba(10,14,40,0.85);  /* codeblock bar */
+  --code-bg:    #0A0D26;              /* code surface + footer */
+
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
@@ -170,7 +179,7 @@ summary:focus-visible,
   padding: 9px 16px;
   border: 1px solid var(--line-i);
   border-radius: 999px;
-  background: rgba(10,14,40,0.6);
+  background: var(--inset-06);
   font-size: 0.9rem; font-weight: 600;
   color: var(--paper);
 }
@@ -192,7 +201,7 @@ summary:focus-visible,
   padding: 6px 16px;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(10,14,40,0.4);
+  background: var(--inset-04);
   min-width: 92px;
 }
 .stat__num {
@@ -265,13 +274,13 @@ summary:focus-visible,
   box-shadow: 0 14px 34px -14px rgba(79,209,197,0.6);
 }
 .btn--ghost {
-  background: rgba(10,14,40,0.4);
+  background: var(--inset-04);
   color: var(--paper);
   border-color: var(--line-i);
   padding: 9px 16px;
   font-size: 0.86rem;
 }
-.btn--ghost:hover { border-color: var(--mist); background: rgba(10,14,40,0.7); }
+.btn--ghost:hover { border-color: var(--mist); background: var(--inset-06); }
 
 /* ============================================================
    LESSON CARD
@@ -284,7 +293,7 @@ main {
 .card {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(33,38,80,0.55), rgba(23,27,61,0.55));
+  background: var(--card-bg);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -316,7 +325,7 @@ main {
   padding: 4px 10px; border-radius: 999px;
   color: var(--mist);
   border: 1px solid var(--line-i);
-  background: rgba(10,14,40,0.35);
+  background: var(--inset-03);
 }
 .ltag--lang {
   color: var(--amber-2); border-color: rgba(245,165,36,0.5);
@@ -342,12 +351,12 @@ main {
   border: 1px solid var(--line-i);
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: #0A0D26;
+  background: var(--code-bg);
 }
 .codeblock__bar {
   display: flex; align-items: center; justify-content: space-between;
   padding: 9px 14px;
-  background: rgba(10,14,40,0.85);
+  background: var(--inset-085);
   border-bottom: 1px solid var(--line);
 }
 .dots { display: inline-flex; gap: 6px; }
@@ -403,7 +412,7 @@ main {
   padding: 12px 14px 12px 48px;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(10,14,40,0.3);
+  background: var(--inset-03);
   color: var(--paper);
   font-size: 0.94rem;
   line-height: 1.5;
@@ -441,7 +450,7 @@ main {
   margin-top: 14px;
   border: 1px solid var(--line-i);
   border-radius: var(--radius-sm);
-  background: rgba(10,14,40,0.4);
+  background: var(--inset-04);
   overflow: hidden;
 }
 .answer__summary {
@@ -477,7 +486,7 @@ main {
   padding: clamp(20px, 3vw, 26px) clamp(22px, 3.4vw, 34px);
   border-top: 1px solid var(--line);
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  background: rgba(10,14,40,0.3);
+  background: var(--inset-03);
 }
 .card__hint { font-size: 0.82rem; color: var(--mist); max-width: 46ch; }
 
@@ -548,6 +557,16 @@ main {
     --dawn-dim:  rgba(198, 72, 43, 0.10);
     --teal-dim:  rgba(12, 122, 110, 0.12);
 
+    /* Light-scheme surface overlays: the dark RGBA values above would
+       blend to a muddy gray over warm paper and tank contrast, so remap
+       them to warm, near-opaque light surfaces. */
+    --card-bg:    #FFFFFF;
+    --inset-06:   #FFFFFF;
+    --inset-04:   #FBF4E7;
+    --inset-03:   #FDF7EC;
+    --inset-085:  rgba(253,243,227,0.9);
+    --code-bg:    #FFFBF2;
+
     --shadow: 0 24px 60px -34px rgba(80,50,10,0.35);
 
     /* syntax tokens (light) */
@@ -555,7 +574,7 @@ main {
     --t-str: #1F7A3D;
     --t-num: #9A5B00;
     --t-fn:  #2B4FB0;
-    --t-com: #8A7E66;
+    --t-com: #6F6552;   /* >=4.5:1 on the light code surface */
     --t-op:  #4A4230;
     --t-id:  #2A2114;
   }
