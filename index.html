@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+  <title>codedawn — a fresh code lesson every morning</title>
+  <meta name="description" content="One genuinely good, hand-verified coding lesson each day — chosen deterministically by the calendar date from a curated corpus of 70. Streaks, browsing, and syntax highlighting, fully offline. No AI, no network.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="canonical" href="https://sreenivas-sadhu-prabhakara.github.io/codedawn/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Sreenivas Sadhu Prabhakara">
+  <meta name="keywords" content="daily code lesson, learn to code, javascript tips, python idioms, typescript types, algorithms, coding challenge, learn programming daily, code snippets, offline learning">
+  <meta name="theme-color" content="#0E1230" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F5A524" media="(prefers-color-scheme: light)">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="codedawn">
+  <meta property="og:title" content="codedawn — a fresh code lesson every morning">
+  <meta property="og:description" content="One genuinely good, hand-verified coding lesson each day, chosen by the calendar date from a curated corpus. Streaks and browsing, fully offline. No AI, no network.">
+  <meta property="og:url" content="https://sreenivas-sadhu-prabhakara.github.io/codedawn/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://sreenivas-sadhu-prabhakara.github.io/codedawn/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="codedawn — a fresh code lesson every morning">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="codedawn — a fresh code lesson every morning">
+  <meta name="twitter:description" content="One genuinely good, hand-verified coding lesson each day, chosen by the calendar date from a curated corpus. Fully offline. No AI, no network.">
+  <meta name="twitter:image" content="https://sreenivas-sadhu-prabhakara.github.io/codedawn/og-image.png">
+  <meta name="twitter:image:alt" content="codedawn — a fresh code lesson every morning">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Structured data (data block; not affected by script-src) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "codedawn",
+    "description": "A daily code lesson: codedawn deterministically selects and presents one hand-authored, hand-verified coding lesson each calendar day from a curated corpus of 70, spanning JavaScript, Python, TypeScript, and language-agnostic algorithms. Streaks, browsing, and syntax highlighting run fully offline.",
+    "url": "https://sreenivas-sadhu-prabhakara.github.io/codedawn/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any (modern web browser)",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "license": "https://opensource.org/licenses/MIT",
+    "author": { "@type": "Person", "name": "Sreenivas Sadhu Prabhakara" },
+    "softwareVersion": "0.1.0",
+    "featureList": [
+      "A date-seeded lesson of the day, identical for everyone on a given calendar date",
+      "Curated corpus of 70 hand-verified lessons across JavaScript, Python, TypeScript, and algorithms",
+      "A local learning streak and lessons-seen tracker",
+      "Previous / next browsing, a surprise-me random pick, and language filters",
+      "Hand-rolled syntax highlighting with no external library",
+      "Runs 100% offline in your browser"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is codedawn free and does it work offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. codedawn is free and open-source under the MIT License, and it runs entirely in your browser with no network access at all. A strict Content-Security-Policy blocks every outbound request, so once the page has loaded it keeps working with no connection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does codedawn use AI to generate lessons?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. codedawn does not call any AI and does not generate code on the fly. It deterministically SELECTS and presents one lesson from a fixed, hand-authored corpus whose code snippets were all verified by hand. There is no model, no API, and no live generation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is today's lesson chosen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The lesson is chosen by a deterministic, date-seeded pseudo-random pick: your device's calendar date seeds a small hash that maps to one lesson in the corpus. Everyone sees the same lesson on the same calendar day, and it changes at local midnight — so at 5am it is genuinely today's lesson."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#lesson">Skip to today's lesson</a>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero__horizon" aria-hidden="true">
+      <svg class="horizon" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax slice" role="presentation">
+        <defs>
+          <linearGradient id="dawnGrad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#F5A524" stop-opacity="0.55"/>
+            <stop offset="45%" stop-color="#FF7E5F" stop-opacity="0.16"/>
+            <stop offset="100%" stop-color="#0E1230" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFD27A"/>
+            <stop offset="60%" stop-color="#F5A524"/>
+            <stop offset="100%" stop-color="#F5A524" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect x="0" y="150" width="1200" height="110" fill="url(#dawnGrad)"/>
+        <circle id="horizonSun" cx="380" cy="196" r="46" fill="url(#sunGrad)"/>
+        <line class="horizon__line" x1="0" y1="196" x2="1200" y2="196" stroke="#F5A524" stroke-width="1.4" stroke-opacity="0.75"/>
+      </svg>
+    </div>
+
+    <div class="hero__inner">
+      <div class="brandrow">
+        <svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true">
+          <line x1="4" y1="21" x2="28" y2="21" stroke="#F5A524" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M16 21a7 7 0 0 1 14 0" fill="none" stroke="#FF7E5F" stroke-width="2.2" stroke-linecap="round" opacity="0"/>
+          <path d="M9 21a7 7 0 0 1 14 0" fill="none" stroke="#FFD27A" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="16" y1="6" x2="16" y2="10" stroke="#F5A524" stroke-width="2" stroke-linecap="round"/>
+          <line x1="6.5" y1="10.5" x2="9" y2="13" stroke="#F5A524" stroke-width="2" stroke-linecap="round"/>
+          <line x1="25.5" y1="10.5" x2="23" y2="13" stroke="#F5A524" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brandname">codedawn</span>
+        <span class="brandtag">a fresh lesson every morning</span>
+      </div>
+
+      <p class="eyebrow">Daily code lesson &middot; hand-verified &middot; offline</p>
+      <h1 class="hero__title">Learn one good thing<br><span class="hero__accent">before the coffee's cold.</span></h1>
+      <p class="hero__lede">
+        Every calendar day, codedawn surfaces one carefully written lesson &mdash; a real, correct
+        snippet, a plain-English walkthrough, why it matters, and a tiny challenge. The pick is
+        <em>seeded by today's date</em>, so it's the same lesson for everyone, and it turns over at midnight.
+      </p>
+
+      <div class="daterow">
+        <div class="datechip">
+          <span class="datechip__dot" aria-hidden="true"></span>
+          <span id="dateLabel">Today</span>
+          <span class="badge" id="todayBadge" hidden>today's pick</span>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat__num" id="statStreak">0</span>
+            <span class="stat__label">day streak</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" id="statSeen">0 / 70</span>
+            <span class="stat__label">learned</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ CONTROL BAR ============ -->
+  <nav class="controlbar" aria-label="Lesson controls">
+    <div class="controlbar__inner">
+      <div class="navgroup" role="group" aria-label="Browse lessons">
+        <button type="button" class="btn btn--ghost" id="prevBtn" aria-label="Previous lesson">&larr; Prev</button>
+        <button type="button" class="btn btn--ghost" id="nextBtn" aria-label="Next lesson">Next &rarr;</button>
+        <button type="button" class="btn btn--ghost" id="surpriseBtn">Surprise me</button>
+        <button type="button" class="btn btn--ghost" id="todayBtn">Today</button>
+      </div>
+      <div class="filters" role="group" aria-label="Filter by language">
+        <button type="button" class="filter is-active" data-lang="all" aria-pressed="true">All</button>
+        <button type="button" class="filter" data-lang="js" aria-pressed="false">JavaScript</button>
+        <button type="button" class="filter" data-lang="py" aria-pressed="false">Python</button>
+        <button type="button" class="filter" data-lang="ts" aria-pressed="false">TypeScript</button>
+        <button type="button" class="filter" data-lang="algo" aria-pressed="false">Algorithms</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="lesson">
+    <!-- ============ LESSON ============ -->
+    <article class="card" aria-labelledby="lessonTitle" aria-live="polite">
+      <header class="card__head">
+        <p class="card__pos" id="posIndicator">Lesson 1 of 70</p>
+        <h2 class="card__title" id="lessonTitle">&nbsp;</h2>
+        <div class="tags" id="lessonTags"></div>
+        <p class="card__concept" id="lessonConcept">&nbsp;</p>
+      </header>
+
+      <section class="codeblock" aria-label="Code snippet">
+        <div class="codeblock__bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="codeblock__lang" id="codeLang">JavaScript</span>
+        </div>
+        <pre class="code" id="lessonCode" tabindex="0"><code></code></pre>
+      </section>
+
+      <section class="walk" aria-labelledby="walkHeading">
+        <h3 class="section__h" id="walkHeading">Walkthrough</h3>
+        <ol class="walk__list" id="lessonWalkthrough"></ol>
+      </section>
+
+      <section class="why" aria-labelledby="whyHeading">
+        <h3 class="section__h" id="whyHeading">Why it matters</h3>
+        <p class="why__text" id="lessonWhy">&nbsp;</p>
+      </section>
+
+      <section class="challenge" aria-labelledby="chHeading">
+        <h3 class="section__h" id="chHeading">Your turn</h3>
+        <p class="challenge__prompt" id="lessonChallenge">&nbsp;</p>
+        <details class="answer" id="answerDetails">
+          <summary class="answer__summary">Reveal a worked answer</summary>
+          <p class="answer__text" id="lessonAnswer">&nbsp;</p>
+        </details>
+      </section>
+
+      <footer class="card__foot">
+        <button type="button" class="btn btn--primary" id="markBtn" aria-pressed="false">Mark as learned</button>
+        <p class="card__hint">Marking today keeps your streak alive. Everything stays on this device.</p>
+      </footer>
+    </article>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="foot__inner">
+      <p class="foot__disclaimer">
+        <strong>How codedawn works, honestly.</strong> codedawn does not call an AI and does not generate
+        code on the fly. It deterministically <em>selects</em> one lesson per day from a fixed, hand-authored
+        corpus whose snippets were all verified by hand. It's an educational aid, not professional advice;
+        always test code in your own environment. Provided under the MIT License, &ldquo;as is&rdquo;, without
+        warranty of any kind &mdash; the author accepts no liability for any loss or damage arising from its use.
+      </p>
+      <p class="foot__meta">
+        <span>Works 100% offline</span><span class="foot__dot">&middot;</span>
+        <span>No AI, no network, no accounts</span><span class="foot__dot">&middot;</span>
+        <span>MIT&nbsp;License</span><span class="foot__dot">&middot;</span>
+        <span>&copy; 2026 Sreenivas&nbsp;Sadhu&nbsp;Prabhakara</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
